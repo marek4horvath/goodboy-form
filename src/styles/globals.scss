@@ -1,0 +1,11 @@
+@import './_variables';
+@import '~antd/dist/reset.css';
+
+html, body, #__next {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; // odstráni scroll
+  background-color: #fff;
+}
+

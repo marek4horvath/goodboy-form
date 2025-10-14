@@ -1,0 +1,57 @@
+@import '../../styles/_variables';
+
+.stepperContainer {
+    width: 80%;
+    margin: 40px auto;
+
+  .stepContent {
+    margin-top: 24px;
+  }
+
+  .stepButtons {
+    margin-block: 24px;
+    display: flex;
+    justify-content: space-between;
+
+    .btnNext {
+      margin: 0;
+      padding: 25px;
+      background-color: $primary;
+      color: #fff;
+
+      &:hover {
+        color: $primary;
+        border-color: $primary;
+      }
+    }
+
+    .btnBack {
+      margin: 0;
+      padding: 25px;
+      background-color: #F3F4F6;
+      color: #374151;
+      border-color: #F3F4F6;
+
+       &:hover {
+        color: $primary;
+        border: 1 solid;
+        border-color: $primary;
+       
+      }
+    }
+
+    .btnSubmit {
+      padding: 25px;
+      background-color: $primary;
+      color: #fff;
+
+      &:hover {
+        color: $primary;
+        border: 1 solid;
+        border-color: $primary;
+       
+      }
+    }
+
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "steps": {
+    "title": {
+      "stepTitle1": "Výber útulku",
+      "stepTitle2": "Osobné údaje",
+      "stepTitle3": "Potvrdenie"
+    },
+    "content": {
+      "stepOne": {
+        "title1": "Vyberte si možnosť, ako chcete pomôcť",
+        "segmented": {
+          "methodContribute": {
+            "methodOne": "Prispieť konkrétnemu útulku",
+            "methodTwo": "Prispieť celej nadácii"
+          }
+        },
+        "shelterPlaceholder": "Vyberte útulok zo zoznamu",
+        "sublable": "O projekte",
+        "lable": "Útulok",
+        "priceTitle": "Suma, ktorou chcem prispieť"
+      }
+
+    }
+  },
+
+  "footer": {
+    "menu": {
+      "contact": "Kontakt",
+      "project": "O projekte"
+    }
+  },
+
+  "optional": "Nepovinné",
+  "next": "Pokračovať",
+  "back": "Späť",
+  "submit": "Odoslať formulár"
+
+}

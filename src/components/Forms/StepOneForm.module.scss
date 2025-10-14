@@ -1,0 +1,142 @@
+@import '../../styles/_variables';
+
+.formContainer {
+    margin-block-start: 55px;
+
+    h1 {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 56px;
+        letter-spacing: -0.3px;
+    }
+
+    .segmentedContainer {
+        border: 1px solid #D1D5DB;
+        border-radius: 12px;
+        padding: 5px;
+
+        :global(.ant-segmented-block) {
+            font-weight: 500;
+            height: 48px;
+            width: 100%;
+            background-color: #fff;
+
+            :global(.ant-segmented-group) {
+                :global(.ant-segmented-item){
+                    padding-top: 7px;
+                    color: #000;
+                    font-weight: 500;
+                    font-size: 14px;
+
+                    &:hover {
+                        background-color: $primary;
+                        color: #fff;
+                    }
+
+                    &:global(.ant-segmented-item-selected) {
+                        background-color: $primary;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+    .selectContainer {
+        margin-block: 50px;
+
+        p {
+            color: #000;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 24px;
+        }
+
+       :global(.label) {
+            color: #000;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 16px;
+        }
+    }
+
+    .priceContainer {
+        margin-block: 50px;
+
+        .priceInput {
+            width: 12%;
+            height: 100px;
+            margin: auto;
+            display: flex;
+            border: none;
+            border-bottom: 2px solid $primary;
+            border-radius: 0;
+            padding: 4px 8px;
+            font-size: 30px;
+            color: #4B5563;
+            text-align: right;
+
+            &:focus {
+                box-shadow: none;
+                border: none;
+                border-bottom-color: $primary;
+                border-radius: 0;
+            }
+
+            :global(.ant-input) {
+                text-align: center; /* 👈 istota, že sa zarovná aj vnútorný input */
+            }
+
+            :global(.ant-input-suffix) {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-left: 1px solid #000;
+                margin-top: 15px;
+                padding-left: 20px;
+                padding-right: 20px;
+                height: 70%;
+                position: relative;
+            }
+        }
+
+        .suffix {
+            color: #4B5563;
+            margin-left: 4px;
+            font-size: 15px;
+            position: absolute;
+            top: 35px;
+        }
+
+        :global(.ant-segmented-block) {
+            font-weight: 500;
+            height: 48px;
+            width: 100%;
+            background-color: #fff;
+            margin-block: 50px;
+
+            :global(.ant-segmented-group) {
+                :global(.ant-segmented-item){
+                    padding-top: 7px;
+                    margin-right: 10px;
+                    color: #000;
+                    font-weight: 500;
+                    font-size: 14px;
+                    background-color: #F3F4F6;
+
+                    &:hover {
+                        background-color: $primary;
+                        color: #fff;
+                    }
+
+                    &:global(.ant-segmented-item-selected) {
+                        background-color: $primary;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
