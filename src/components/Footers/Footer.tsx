@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { FacebookFilled, InstagramOutlined } from '@ant-design/icons';
+import { Image } from 'antd';
 import { useTranslation } from 'react-i18next';
 import styles from './Footer.module.scss';
 
@@ -13,7 +14,7 @@ export const Footer: React.FC = () => {
       <div className={styles.footerContent}>
         <div className={styles.left}>
             <a href="#" target="_blank" rel="noopener noreferrer" >
-                <img src="/images/logo.png" alt="Logo" className={styles.logo}/>
+                <Image src="/images/logo.png" alt="Logo" className={styles.logo}/>
             </a>
         </div>
 

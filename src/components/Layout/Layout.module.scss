@@ -1,43 +1,36 @@
 @import '../../styles/_variables';
 
 .layout {
-  min-height: 100vh;
   background-color: #fff;
-}
 
-.content {
-  display: flex;
-  height: 100vh;
-  padding: 5px;
-  box-sizing: border-box;
-}
+  .content {
+    display: flex;
+    align-items: stretch;
+    padding: 5px;
+    box-sizing: border-box;
 
-.leftColumn {
-  flex: 0 0 70%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding-left: 2rem;
-  padding-right: 5px;
-}
+    .leftColumn {
+      flex: 0 0 70%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-left: 2rem;
+      padding-right: 5px;
+    }
 
-.footer {
-  margin-top: auto;
-  font-size: 0.85rem;
-  color: #888;
-}
+    .rightColumn {
+      flex: 0 0 30%;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      padding-left: 5px;
 
-.rightColumn {
-  flex: 0 0 30%;
-  height: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding: 5px;
-  box-sizing: border-box;
-  img {
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 20px;
+      }
+    }
   }
 }

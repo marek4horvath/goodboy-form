@@ -20,6 +20,11 @@
         "priceTitle": "Suma, ktorou chcem prispieť"
       }
 
+    },
+    "validation": {
+      "selectDonationType": "Prosím, vyberte formu pomoci!",
+      "selectShelter": "Prosím, vyberte útulok!",
+      "selectPrice": "Prosím, zadajte výšku príspevku!"
     }
   },
 

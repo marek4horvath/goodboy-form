@@ -27,10 +27,13 @@
                     color: #000;
                     font-weight: 500;
                     font-size: 14px;
+                    margin-left: 10px;
+                    margin-right: 10px;
 
                     &:hover {
-                        background-color: $primary;
-                        color: #fff;
+                        background-color: #fff;
+                        border: 1px solid $primary;
+                        color: $primary;
                     }
 
                     &:global(.ant-segmented-item-selected) {
@@ -64,7 +67,7 @@
         margin-block: 50px;
 
         .priceInput {
-            width: 12%;
+            width: 150px;
             height: 100px;
             margin: auto;
             display: flex;
@@ -75,6 +78,7 @@
             font-size: 30px;
             color: #4B5563;
             text-align: right;
+            background-color: #fff;
 
             &:focus {
                 box-shadow: none;
@@ -83,8 +87,12 @@
                 border-radius: 0;
             }
 
+            &:focus-visible {
+                box-shadow: none;
+            }
+
             :global(.ant-input) {
-                text-align: center; /* 👈 istota, že sa zarovná aj vnútorný input */
+                text-align: center;
             }
 
             :global(.ant-input-suffix) {
