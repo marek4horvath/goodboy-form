@@ -1,0 +1,22 @@
+@import '../../styles/_variables';
+
+.reviewContainer {
+    padding: 2rem;
+    background-color: #fff;
+
+    .reviewRow {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+    }
+
+    .label {
+        font-weight: 500;
+    }
+
+    .value {
+        font-weight: 700;
+        text-align: right;
+    }
+
+}

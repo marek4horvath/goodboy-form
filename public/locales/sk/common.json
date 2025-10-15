@@ -18,14 +18,74 @@
         "sublable": "O projekte",
         "lable": "Útulok",
         "priceTitle": "Suma, ktorou chcem prispieť"
-      }
+      },
+      "stepTwo": {
+        "title": "Potrebujeme od Vás zopár informácií",
+        "form": {
+          "title": "O vás",
+          "lable": {
+            "name": "Meno",
+            "surname": "Priezvisko",
+            "email": "E-mailová adresa",
+            "phoneNumber": "Telefónne čislo",
+            "consent": "Súhlasím so spracovaním osobných údajov"
+          },
+          "placeholder": {
+            "name": "Zadajte Vaše meno",
+            "surname": "Zadajte Vaše meno",
+            "email": "Zadajte Vaše meno",
+            "phoneNumber": "123 321 123"
+          },
+          "message": {
+            "name": "Meno musí mať 2–20 znakov",
+            "surnameRequired": "Priezvisko je povinné",
+            "surname": "Priezvisko musí mať 2–30 znakov",
+            "emailRequired": "E-mail je povinný",
+            "email": "Zadajte platnú e-mailovú adresu",
+            "phoneNumberRequired": "Telefón je povinný",
+            "phoneNumber": "Zadajte platné telefónne číslo bez predvoľby (9 číslic)",
+            "consentRequired": "Musíte súhlasiť so spracovaním osobných údajov"
+          }
+        }
+      },
+      "stepThree": {
+        "title": "Skontrolujte si zadané údaje",
+        "subTitle": "Zhrnutie",
+        "formAssistance": "Forma pomoci",
+        "shelter": "Útulok",
+        "amountContribution": "Suma príspevku",
+        "nameSurname": "Meno a priezvisko",
+        "email": "E-mail",
+        "phoneNumber": "Telefónne číslo",
+        "consent": "Súhlasím so spracovaním mojich osobných údajov"
 
+      }
     },
     "validation": {
       "selectDonationType": "Prosím, vyberte formu pomoci!",
       "selectShelter": "Prosím, vyberte útulok!",
-      "selectPrice": "Prosím, zadajte výšku príspevku!"
+      "selectPrice": "Prosím, zadajte výšku príspevku!",
+      "name": "Meno musí mať 2–20 znakov",
+      "surnameRequired": "Priezvisko je povinné",
+      "surname": "Priezvisko musí mať 2–30 znakov",
+      "emailRequired": "E-mail je povinný",
+      "email": "Zadajte platnú e-mailovú adresu",
+      "phoneNumberRequired": "Telefón je povinný",
+      "phoneNumber": "Zadajte platné telefónne číslo bez predvoľby (9 číslic)",
+      "consentRequired": "Musíte súhlasiť so spracovaním osobných údajov"
     }
+  },
+
+  "aboutProject": {
+    "title": "O projekte",
+    "intro": "Nadácia Good Boy sa venuje zlepšovaniu života psov v Žiline na Slovensku. Zachraňujeme opustené, týrané a bezdomovské psy, poskytujeme im lekársku starostlivosť, útočisko a lásku, ktorú si zaslúžia. Našim poslaním je dať týmto verným spoločníkom druhú šancu na život tým, že im nájdeme milujúci domov. Okrem záchrany a rehabilitácie sa zameriavame aj na podporu zodpovednéh vlastníctva zvierat a ochrany zvierat prostredníctvom vzdelávacích a komunitných programov.",
+    "outro": "Naša práca je možná vďaka podpore vášnivých dobrovoľníkov, štedrých darcov a komunity, ktorá sa hlboko stará o dobro zvierat. Organizujeme aj kastračné a sterilizačné iniciatívy, aby sme riešili problém túlavých psov a zabezpečili dlhodobý vplyv. V nadácii Good Boy veríme, že každý pes si zaslúži bezpečný, milujúci domov a šťastný život. Pridajte sa k nám a pomôžte nám robiť zmeny – či už dobrovoľníctvom, darovaním alebo adopciou chlpatého priateľa. Spoločne môžeme vytvoriť lepšiu budúcnosť pre psy v Žiline.",
+    "totalValue": "Celkovo vyzbieraná hodnota",
+    "numberDonors": "Počet darcov"
+  },
+
+  "contact": {
+    "title": "Kontakt"
   },
 
   "footer": {
@@ -38,6 +98,7 @@
   "optional": "Nepovinné",
   "next": "Pokračovať",
   "back": "Späť",
-  "submit": "Odoslať formulár"
+  "submit": "Odoslať formulár",
+  "submitSucc": "Príspevok bol úspešne odoslaný!"
 
 }

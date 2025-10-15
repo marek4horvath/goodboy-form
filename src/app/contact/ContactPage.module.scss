@@ -1,0 +1,49 @@
+@import '../../styles/_variables';
+
+.layout {
+    background-color: #ffff;
+
+    .container {
+        width: 90%;
+        margin: auto;
+        padding: 60px;
+
+        .backLink{
+            color: #7357ff;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 32px;
+        }
+
+        .imageWrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            .banner {
+                border-radius: 20px;
+                opacity: 1;
+                width: 1120px;
+                height: 376px;
+                margin: 0 auto;
+                display: block;
+            }
+        }
+
+    }
+
+    .footer {
+        width: 90%;
+        margin: auto;
+
+        .footerContent {
+            max-width: unset !important;
+        }
+    }
+}

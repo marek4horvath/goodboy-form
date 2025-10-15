@@ -11,3 +11,8 @@ export const PRICE_OPTIONS = [
   { value: 50, label: '50€' },
   { value: 100, label: '100€' },
 ];
+
+export const COUNTRY_OPTIONS = [
+  { value: '+421', label: '🇸🇰' },
+  { value: '+420', label: '🇨🇿' },
+];

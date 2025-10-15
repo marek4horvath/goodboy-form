@@ -3,49 +3,116 @@
 import React, { useState } from 'react';
 import { Steps, Button, message } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { validateStepOne } from '@/utils/validators';
-import { FormData } from '@/types/form';
+import { validateStepOne, validateStepTwo } from '@/utils/validators';
+import { FormDataStepOne, FormDataStepTwo } from '@/types/form';
 import styles from './Stepper.module.scss';
 import { ArrowRightOutlined, ArrowLeftOutlined } from '@ant-design/icons'; 
 import { StepOneForm } from '@/components/Forms/StepOneForm';
+import { StepTwoForm } from '@/components/Forms/StepTwoForm';
+import { StepThreeReview } from '@/components/Forms/StepThreeReview';
 import { Footer } from '@/components/Footers/Footer';
+import { contributeToShelter } from '@/api/sheltersApi';
+import { ShelterContributionRequest } from '@/types/shelters/contribute';
 
 export const Stepper: React.FC = () => {
   const [current, setCurrent] = useState(0);
   const { t } = useTranslation('common');
 
-  const [formData, setFormData] = useState<any>({
+  const [formDataStepOne, setFormDataStepOne] = useState<any>({
     donationType: '',
     shelter: '',
+    shelterId: undefined,
     price: 0,
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    consent: false,
   });
 
+  const [formDataStepTwo, setFormDataStepTwo] = useState<any>({
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      prefixValue: '+421',
+      consent: false,
+  });
+
+  const [consentStepThree, setConsentStepThree] = useState(false);
 
   const [messageApi, contextHolder] = message.useMessage();
 
   const steps = [
-    { title: t('steps.title.stepTitle1'), content: <StepOneForm formData={formData} setFormData={setFormData} /> },
-    { title: t('steps.title.stepTitle2'), content: <div>{t('step2_title')} content</div> },
-    { title: t('steps.title.stepTitle3'), content: <div>{t('step3_title')} content</div> },
+    { title: t('steps.title.stepTitle1'), content: <StepOneForm formDataStepOne={formDataStepOne} setFormDataStepOne={setFormDataStepOne} /> },
+    { title: t('steps.title.stepTitle2'), content: <StepTwoForm formDataStepTwo={formDataStepTwo} setFormDataStepTwo={setFormDataStepTwo} /> },
+    { title: t('steps.title.stepTitle3'), content: <StepThreeReview formDataStepOne={formDataStepOne} formDataStepTwo={formDataStepTwo} consentStepThree={consentStepThree} setConsentStepThree={setConsentStepThree}  /> },
   ];
 
 
   const next = () => {
-    const { valid, error } = validateStepOne(formData as FormData, t);
+    const { valid, error } = validateStepOne(formDataStepOne as FormDataStepOne, t);
 
     if (!valid) {
       messageApi.error(error, 3);
       return;
     }
+    
+    if (current === 1) {
+      const { valid, error } = validateStepTwo(formDataStepTwo as FormDataStepTwo, t);
+      if (!valid) {
+        messageApi.error(error, 3);
+        return;
+      }
+    }
+    
     setCurrent(prev => prev + 1);
   };
 
   const prev = () => setCurrent((prev) => prev - 1);
+
+  const submit = async () => {
+
+    const payload: ShelterContributionRequest = {
+      contributors: [
+        {
+          firstName: formDataStepTwo.firstName,
+          lastName: formDataStepTwo.lastName,
+          email: formDataStepTwo.email,
+          phone: `${formDataStepTwo.countryCode} ${formDataStepTwo.phone}`,
+        },
+      ],
+      shelterID: formDataStepOne.shelterId,
+      value: formDataStepOne.price?.value ?? 0,
+    };
+
+    try {
+      const response = await contributeToShelter(payload);
+
+     if (response.messages && response.messages[0]?.type === 'SUCCESS') {
+        messageApi.success(t('submitSucc'));
+
+         setFormDataStepOne({
+          donationType: '',
+          shelter: '',
+          shelterId: undefined,
+          price: 0,
+        });
+
+        setFormDataStepTwo({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          countryCode: '+421',
+          consent: false,
+        });
+
+
+        setCurrent(0);
+
+      } else {
+        messageApi.error(response.messages[0].message);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <div className={styles.stepperContainer}>
@@ -107,7 +174,7 @@ export const Stepper: React.FC = () => {
             {t('next')} <ArrowRightOutlined />
           </Button>
         ) : (
-          <Button className={styles.btnSubmit} onClick={() => alert('Odoslané!')}>
+          <Button className={styles.btnSubmit} disabled={!consentStepThree} onClick={submit}>
             {t('submit')}
           </Button>
         )}

@@ -1,0 +1,54 @@
+@import '../../styles/_variables';
+
+.formContainer {
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 12px;
+
+    h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .nameRow {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 1rem;
+        width: 100%;
+
+        .half {
+            flex: 1;
+        }
+    }
+
+    .phoneRow {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        width: 100%;
+
+        .countrySelect {
+            width: 60px;
+        }
+
+        .phoneInput {
+            width: 100%;
+        }
+
+        :global(.ant-select-selector) {
+            height: 50px !important;
+            display: flex;
+            align-items: center !important;
+            margin-top: -9px;
+        }
+
+
+    }
+
+    :global(.ant-input) {
+        height: 50px;
+    }
+
+}

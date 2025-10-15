@@ -4,43 +4,67 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Segmented, Select, Form, Input } from 'antd';
 import styles from './StepOneForm.module.scss';
-import { FormData } from '@/types/form';
+import { FormDataStepOne } from '@/types/form';
 import { DONATION_TYPES, PRICE_OPTIONS } from '@/utils/appConstants';
+import { fetchShelters } from '@/api/sheltersApi';
+import { Shelter } from '@/types/shelters/contribute';
 
 interface StepOneFormProps {
-  formData: FormData;
-  setFormData: React.Dispatch<React.SetStateAction<FormData>>;
+  formDataStepOne: FormDataStepOne;
+  setFormDataStepOne: React.Dispatch<React.SetStateAction<FormDataStepOne>>;
 }
 
-export const StepOneForm: React.FC<StepOneFormProps> = ({ formData, setFormData }) => {
-  const { t } = useTranslation('common');
-  const [priceValue, setPriceValue] = useState<number | undefined>(formData.price?.value);
+export const StepOneForm: React.FC<StepOneFormProps> = ({ formDataStepOne, setFormDataStepOne}) => {
+    const { t } = useTranslation('common');
+    const [priceValue, setPriceValue] = useState<number | undefined>(formDataStepOne.price?.value);
+    const [shelters, setShelters] = useState<Shelter[]>([]);
 
-  useEffect(() => {
-    if (formData.price?.value) {
-      setPriceValue(formData.price.value);
-    }
-  }, [formData.price]);
+    useEffect(() => {
+      if (formDataStepOne.price?.value) {
+        setPriceValue(formDataStepOne.price.value);
+      }
+    }, [formDataStepOne.price]);
 
-  const donationOptions = [
-    { value: DONATION_TYPES.GENERAL, label: t('steps.content.stepOne.segmented.methodContribute.methodOne') },
-    { value: DONATION_TYPES.SHELTER, label: t('steps.content.stepOne.segmented.methodContribute.methodTwo') },
-  ];
+    useEffect(() => {
+      const loadShelters = async () => {
+        try {
+          const data = await fetchShelters();
+          setShelters(data);
+        } catch (err) {
+          console.error(err);
+        }
+      };
+      loadShelters();
+    }, [t]);
 
-  const handleSegmentClick = (val: number) => {
-    setPriceValue(val);
-    setFormData({ ...formData, price: { value: val, label: `${val}€` } });
-  };
+    const donationOptions = [
+      { value: DONATION_TYPES.GENERAL, label: t('steps.content.stepOne.segmented.methodContribute.methodOne') },
+      { value: DONATION_TYPES.SHELTER, label: t('steps.content.stepOne.segmented.methodContribute.methodTwo') },
+    ];
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = parseInt(e.target.value);
-    if (!isNaN(val)) {
+    const handleSegmentClick = (val: number) => {
       setPriceValue(val);
-      setFormData({ ...formData, price: { value: val, label: `${val}€` } });
-    } else {
-      setPriceValue(undefined);
-      setFormData({ ...formData, price: undefined });
-    }
+      setFormDataStepOne({ ...formDataStepOne, price: { value: val, label: `${val}€` } });
+    };
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const val = parseInt(e.target.value);
+      if (!isNaN(val)) {
+        setPriceValue(val);
+        setFormDataStepOne({ ...formDataStepOne, price: { value: val, label: `${val}€` } });
+      } else {
+        setPriceValue(undefined);
+        setFormDataStepOne({ ...formDataStepOne, price: undefined });
+      }
+    };
+
+    const handleShelterChange = (val: number | undefined) => {
+      const selected: Shelter | undefined = shelters.find(s => s.id === val);
+      setFormDataStepOne({
+        ...formDataStepOne,
+        shelterId: val,
+        shelter: selected ? selected.name : undefined,
+      });
   };
 
   return (
@@ -51,15 +75,15 @@ export const StepOneForm: React.FC<StepOneFormProps> = ({ formData, setFormData 
         <Segmented
           options={donationOptions}
           block
-          value={formData.donationType}
-          onChange={(val) => setFormData({ ...formData, donationType: val })}
+          value={formDataStepOne.donationType}
+          onChange={(val) => setFormDataStepOne({ ...formDataStepOne, donationType: val })}
         />
       </div>
 
       <div className={styles.selectContainer}>
         <p>{t('steps.content.stepOne.sublable')}</p>
 
-        <Form layout="vertical" initialValues={{ shelter: formData.shelter }}>
+        <Form layout="vertical" initialValues={{ shelter: formDataStepOne.shelter || undefined }}>
           <Form.Item
             label={
               <span className="label">
@@ -68,17 +92,21 @@ export const StepOneForm: React.FC<StepOneFormProps> = ({ formData, setFormData 
               </span>
             }
             name="shelter"
-          >
+          >            
+
             <Select
               style={{ width: '100%', height: 50 }}
-              placeholder={`${t('steps.content.stepOne.shelterPlaceholder')} (${t('optional')})`}
+              placeholder={t('steps.content.stepOne.shelterPlaceholder')}
               allowClear
-              value={formData.shelter}
-              onChange={(val) => setFormData({ ...formData, shelter: val })}
+              value={formDataStepOne.shelterId}
+              onChange={(val: number | undefined) => handleShelterChange(val)}
             >
-              <Select.Option value="lucy">Lucy</Select.Option>
-              <Select.Option value="bella">Bella</Select.Option>
-              <Select.Option value="max">Max</Select.Option>
+
+              {shelters.map((shelter) => (
+                <Select.Option key={shelter.id} value={shelter.id}>
+                  {shelter.name}
+                </Select.Option>
+              ))}
             </Select>
           </Form.Item>
         </Form>

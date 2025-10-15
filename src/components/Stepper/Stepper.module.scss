@@ -51,6 +51,17 @@
         border-color: $primary;
        
       }
+
+      &:disabled {
+        background-color: $primary;
+        color: #fff;
+        cursor: not-allowed;
+        
+        &:hover {
+          color: #fff;
+          background-color: $primary;
+        }
+      }
     }
 
   }
