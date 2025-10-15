@@ -1,8 +1,102 @@
 {
-  "step1_title": "Donation Type",
-  "step2_title": "Personal Info",
-  "step3_title": "Confirmation",
+  "steps": {
+    "title": {
+      "stepTitle1": "Select Shelter",
+      "stepTitle2": "Personal Information",
+      "stepTitle3": "Confirmation"
+    },
+    "content": {
+      "stepOne": {
+        "title1": "Choose how you want to help",
+        "segmented": {
+          "methodContribute": {
+            "methodOne": "Contribute to a specific shelter",
+            "methodTwo": "Contribute to the whole foundation"
+          }
+        },
+        "shelterPlaceholder": "Select a shelter from the list",
+        "sublable": "About the project",
+        "lable": "Shelter",
+        "priceTitle": "Amount I want to contribute"
+      },
+      "stepTwo": {
+        "title": "We need some information from you",
+        "form": {
+          "title": "About you",
+          "lable": {
+            "name": "First Name",
+            "surname": "Last Name",
+            "email": "Email Address",
+            "phoneNumber": "Phone Number",
+            "consent": "I agree with the processing of personal data"
+          },
+          "placeholder": {
+            "name": "Enter your first name",
+            "surname": "Enter your last name",
+            "email": "Enter your email",
+            "phoneNumber": "123 321 123"
+          },
+          "message": {
+            "name": "First name must be 2–20 characters",
+            "surnameRequired": "Last name is required",
+            "surname": "Last name must be 2–30 characters",
+            "emailRequired": "Email is required",
+            "email": "Enter a valid email address",
+            "phoneNumberRequired": "Phone number is required",
+            "phoneNumber": "Enter a valid phone number without country code (9 digits)",
+            "consentRequired": "You must agree with the processing of personal data"
+          }
+        }
+      },
+      "stepThree": {
+        "title": "Review your information",
+        "subTitle": "Summary",
+        "formAssistance": "Form of assistance",
+        "shelter": "Shelter",
+        "amountContribution": "Contribution Amount",
+        "nameSurname": "Full Name",
+        "email": "Email",
+        "phoneNumber": "Phone Number",
+        "consent": "I agree with the processing of my personal data"
+      }
+    },
+    "validation": {
+      "selectDonationType": "Please select a form of assistance!",
+      "selectShelter": "Please select a shelter!",
+      "selectPrice": "Please enter the contribution amount!",
+      "name": "First name must be 2–20 characters",
+      "surnameRequired": "Last name is required",
+      "surname": "Last name must be 2–30 characters",
+      "emailRequired": "Email is required",
+      "email": "Enter a valid email address",
+      "phoneNumberRequired": "Phone number is required",
+      "phoneNumber": "Enter a valid phone number without country code (9 digits)",
+      "consentRequired": "You must agree with the processing of personal data"
+    }
+  },
+
+  "aboutProject": {
+    "title": "About the Project",
+    "intro": "The Good Boy Foundation is dedicated to improving the lives of dogs in Žilina, Slovakia. We rescue abandoned, abused, and homeless dogs, provide them with medical care, shelter, and the love they deserve. Our mission is to give these loyal companions a second chance at life by finding them loving homes. Beyond rescue and rehabilitation, we also promote responsible pet ownership and animal protection through educational and community programs.",
+    "outro": "Our work is possible thanks to passionate volunteers, generous donors, and a community that deeply cares about animal welfare. We also organize spaying and neutering initiatives to address the stray dog problem and ensure long-term impact. At the Good Boy Foundation, we believe every dog deserves a safe, loving home and a happy life. Join us in making a difference – through volunteering, donating, or adopting a furry friend. Together, we can create a better future for dogs in Žilina.",
+    "totalValue": "Total Collected Amount",
+    "numberDonors": "Number of Donors"
+  },
+
+  "contact": {
+    "title": "Contact"
+  },
+
+  "footer": {
+    "menu": {
+      "contact": "Contact",
+      "project": "About the Project"
+    }
+  },
+
+  "optional": "Optional",
   "next": "Next",
   "back": "Back",
-  "submit": "Submit"
+  "submit": "Submit Form",
+  "submitSucc": "Contribution has been successfully submitted!"
 }
