@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Good Boy Donation App
 
-## Getting Started
+Tento projekt je frontendová aplikácia pre nadáciu Good Boy, ktorá umožňuje používateľom jednoducho prispieť na podporu psích útulkov.
+Aplikácia je vytvorená pomocou Next.js, React, TypeScript a Ant Design.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Funkcie
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Viackrokový formulár (stepper) pre vytvorenie príspevku:
+  - Výber útulku a sumy
+  - Zadanie osobných údajov
+  - Kontrola údajov a odoslanie príspevku
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Viacjazyčná podpora (Slovenčina a Angličtina) pomocou i18next
+- Načítanie dát o útulkoch z API (/api/v1/shelters/results)
+- Zobrazenie informácií o projekte a kontaktná stránka
+- Prepojenie s backend API pre odosielanie príspevkov
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Použité technológie
 
-## Learn More
+- Next.js 15+
+- React 19+
+- TypeScript
+- Ant Design
+- i18next
+- SCSS Modules
 
-To learn more about Next.js, take a look at the following resources:
+## Inštalácia a spustenie
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Naklonuj repozitár:
 
-## Deploy on Vercel
+        git clone https://github.com/tvoje-repo/goodboy-donation.git
+        cd goodboy-donation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Nainštaluj závislosti:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+        npm install
+        # or
+        yarn install
+
+- Vytvor súbor .env.local v koreňovom adresári projektu a pridaj:
+
+        NEXT_PUBLIC_API_BASE_URL=https://frontend-assignment-api.goodrequest.dev/api/v1/shelters
+
+
+- Spusti projekt v dev režime:
+
+        npm run dev
+        # or
+        yarn dev
+
+- Otvor vo svojom prehliadači:
+
+        http://localhost:3000
+
+## Stránky
+
+| Stránka          | Popis                                     |
+| ---------------- | ----------------------------------------- |
+| `/`              | Hlavná stránka s formulárom pre príspevok |
+| `/about-project` | Informácie o projekte                     |
+| `/contact`       | Kontaktná stránka                         |
